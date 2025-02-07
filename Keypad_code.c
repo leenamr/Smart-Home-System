@@ -103,13 +103,13 @@ char GetKey() {
     // Wait for a valid key press
     do {
         keyIndex = Keypad_Key_Click();  // Wait for a key click
-        Delay_ms(50);  // Debounce delay
+        msDelay(50);  // Debounce delay
     } while (!keyIndex);
     // Map the key index to the corresponding character
     key = KeypadMapping(keyIndex);
     // Wait for key release
     while (Keypad_Key_Click()) {
-        Delay_ms(50);  // Ensure the key is released
+        msDelay(50);  // Ensure the key is released
     }
 
     return key;
